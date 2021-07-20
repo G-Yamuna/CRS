@@ -1,0 +1,17 @@
+{% extends 'html/header.html' %}
+{% block title %}Update Case{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="card col-md-5 mt-5 mx-auto">
+		<h3 class="bg-warning text-white text-center border rounded mt-3">Update Case</h3>
+		<div class="card-body">
+			<form method="POST">
+				{% csrf_token %}
+				{{us.as_p}} 
+				<input type="submit" value="update" class="btn btn-success btn-block my-2">
+			</form>
+			
+		</div>		
+	</div>
+</div>
+{% endblock %}

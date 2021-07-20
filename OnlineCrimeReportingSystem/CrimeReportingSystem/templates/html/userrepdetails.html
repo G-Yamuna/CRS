@@ -1,0 +1,42 @@
+{% extends 'html/header.html' %}
+{% block title %} Total Users {% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="card mx-auto mt-5 shadow-lg">
+    <div class="card-body">
+			<h3 class="text-center text-warning">USER DETAILS</h3>
+			<table class="table table-hover">
+				<thead class="table-active">
+				<tr>
+					<th>S.no</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Mobile</th>
+					<th>City</th>
+					
+					<!-- <th></th> -->
+					<th>Actions</th>
+					<!-- <th>Added By</th> -->
+				</tr>
+			</thead>
+				{% for f in p %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{f.0}}</td>
+					<td>{{f.4}}</td>
+					<td>{{f.2}}</td>
+					<td>{{f.1}}</td>
+					<!-- <td>{{f.3}}</td> -->
+					<td><a href="{% url 'viewu' f.3 %}" class="btn btn-info"><i class="bi bi-eye"></i> View</a><a href="{% url 'delu' f.3 %}" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+				</td>
+				<!-- <td></td> -->
+				</tr>
+				{% endfor %}
+			</table>
+				
+	</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'html/header.html' %}
+{% block title %} Criminal Details {% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="card mx-auto mt-5 shadow-lg">
+    <div class="card-body">
+			<h3 class="text-center">CRIMINAL DETAILS</h3>
+			<table class="table table-hover">
+				<thead class="table-active">
+				<tr>
+					<th>S.no</th>
+					<th>Name</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Country</th>
+					<th>Actions</th>
+					<!-- <th>Added By</th> -->
+				</tr>
+				</thead>
+				{% for f in s %}
+				<tbody class="table-light">
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{f.criminal_name}}</td>
+					<td>{{f.city}}</td>
+					<td>{{f.state}}</td>
+					<td>{{f.country}}</td>
+					<td><a href="{% url 'ecri' f.id %}" class="btn btn-warning"><i class="bi bi-pencil"></i> Edit</a><a href="{% url 'dcri' f.id %}" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+				</td>
+				<!-- <td></td> -->
+				</tr>
+			</tbody>
+				{% endfor %}
+			</table>
+				
+	</div>
+</div>
+</div>
+
+{% endblock %}

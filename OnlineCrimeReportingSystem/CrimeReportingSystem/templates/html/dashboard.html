@@ -1,0 +1,227 @@
+{% extends 'html/header.html' %}
+{% block title %} Dashboard {% endblock %}
+{% block content %}
+
+<!-- <h3>Welcome {{user.username}}</h3>
+<a href="">My Cases</a>
+</br>
+<a href="">Crimes List</a> -->
+
+<div class="container mt-4">
+	<!-- <div class="jumbotron"> -->
+		<h3>
+		{% if user.is_superuser %}
+		<!-- SuperUser Main Page	 -->
+		<h3 class="text-center" style="font-family: Georgia, serif;"><strong>Welcome {{user.username}}</strong></h3>
+		<div class="container mt-5">
+  
+		  <div class="row">
+
+		  	<div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Case Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'mc' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		    <div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Crime Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'crirep' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		    <div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Criminal Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'crep' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		    <div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Employee Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'er' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+		    
+		    <div class="container mt-5">
+  
+		  <div class="row">
+
+		  	<div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>User Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'ur' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		   
+		    <div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Permissions</h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'per' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		    
+		  	<div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>My Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'profile' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		</div>
+
+		<!-- User Dashboard -->
+
+		{% elif user.role == 1 %}
+		<h3 class="text-center" style="font-family: Georgia, serif;"><strong>Welcome {{user.username}}</strong></h3>
+		<p class="mt-2" style="font-size: 18px">You may be either a victim of crime or a witness to the crime. Well, it is not easy to come forward. But, if no one reports crime to the Police, criminals commit more crime, damage more property and finally justice is denied forever.</p>
+
+		<p style="font-size: 18px">It's also important to report crime for your own sake as getting a crime number from the police will trigger the investigation.</p>
+
+		<h4 style="text-shadow: ">What should you do when the crime is in progress?</h4></br>
+
+		<p style="font-size: 18px">
+			<strong>-></strong> Screeeeam..! Loudly to attract attention.</br>
+			<strong>-></strong> Try to resist with all your might if you have no other choice.</br>
+			<strong>-></strong> Remember the identity of the criminal like face, scars, hair style, language etc.</br>
+			<strong>-></strong> Remember the registration number, color and make of the crime vehicle (when you are on road and idle, practice</br>remembering registration numbers just as a hobby..! It helps.)</br>
+			<strong>-></strong> If you are the witness, try to follow the crime vehicle and catch him when you feel confident</br>
+			<strong>-></strong> Try to dial 100 , if you are a witness</br>
+		</p>
+
+
+		<!-- Police Dashboard -->
+		{% elif user.role == 2 %}
+		<h3 class="text-center" style="font-family: Georgia, serif;"><strong>Welcome {{user.username}}</strong></h3>
+
+		<div class="container mt-5">
+  
+		  <div class="row">
+
+		  	<div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Case Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'mc' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		    <div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Crime Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'crirep' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		    <div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>Criminal Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'crep' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+
+		    <div class="col-md-3">
+		  		<div class="card text-center">
+		  			<div class="card-header bg-secondary text-white">
+		  				<h4>My Details </h4>
+		  			</div>
+		  			<div class="card-footer">
+		  				<p>
+		  					<a href="{% url 'profile' %}"><i class="bi bi-eye"></i> View</a>
+		  				</p>
+		  			</div>
+		 			
+		  		</div>
+		    </div>
+		    
+
+		</div>
+
+<!-- Guest Page -->
+		{% else %}
+		<h3 class="text-center" style="font-family: Georgia, serif;"><strong>Welcome {{user.username}}</strong></h3>
+		<h5>You are one step ahead to become a user/member in this website </br>
+			Currently your role is <strong>Guest</strong> you have to send a request to admin to access user or police permissions in this site</br>
+		<a href="{% url 'rr' %}">Request</a> the <strong>Admin</strong> to become a member</h5>
+
+
+		{% endif %}
+
+		</h3>
+		
+	</div>
+</div>
+{% endblock %}

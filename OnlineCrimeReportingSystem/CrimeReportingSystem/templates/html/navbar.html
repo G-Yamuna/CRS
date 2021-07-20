@@ -1,0 +1,144 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">  
+
+<h2 class="text-danger text-danger text-center" style=""><i class="bi bi-pencil-square"></i> Crime Reporting System</h2>
+
+<!-- <nav class="navbar navbar-expand-sm bg-info navbar-dark"> -->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <!-- <a class="navbar-brand" href="{% url 'hm' %}">
+    <h2>Online Crime Reporting System</h2> 
+  </a>  -->
+  
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <!-- <span class="navbar-toggler-icon"></span> -->
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    {% if not user.is_authenticated %}  
+    <li class="nav-item ">
+      <a class="nav-link" href="{% url 'hm' %}"><i class="fas fa-home"></i> Home </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'au' %}"><i class="bi bi-info-circle-fill"></i> Aboutus </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'cu' %}"><i class="bi bi-telephone-fill"></i> Contactus</a>
+    </li>
+
+    {% elif user.is_superuser %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'hm' %}"><i class="fas fa-home"></i> Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dsh' %}"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'per' %}"><i class="bi bi-unlock-fill"></i> Give Permissions</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'cri' %}"><i class="bi bi-person-plus-fill"></i> Add Criminal</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'adcr' %}"><i class="bi bi-plus-lg"></i> Add Crime</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ac' %}"><i class="bi bi-plus-lg"></i> Add Case</a>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Add Users</a>
+    </li> -->
+    <li class="dropdown">
+      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown"><i class="bi bi-file-earmark-person-fill"></i> Reports</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'er' %}"><i class="bi bi-person-badge"></i> Employee Report</a>
+        <a class="dropdown-item" href="{% url 'ur' %}"><i class="bi bi-person-badge"></i> User Report</a>
+        <a class="dropdown-item" href="{% url 'crep' %}"><i class="bi bi-file-earmark-text"></i> Criminal Report</a>
+        <a class="dropdown-item" href="{% url 'crirep' %}"><i class="bi bi-file-earmark-text"></i> Crime Report</a>
+        <a class="dropdown-item" href="{% url 'mc' %}"><i class="bi bi-file-earmark-text"></i> Case Report</a>
+      </div>
+    </li>
+
+    {% elif user.role == 1 %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'hm' %}"><i class="fas fa-home"></i> Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dsh' %}"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ac' %}"><i class="bi bi-pencil-square"></i> File Case</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'mc' %}"><i class="bi bi-file-earmark-check-fill"></i> My Case</a>
+    </li>
+
+    {% elif user.role == 2 %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'hm' %}"><i class="fas fa-home"></i> Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dsh' %}"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'cri' %}"><i class="bi bi-person-plus-fill"></i> Add Criminal</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'adcr' %}"><i class="bi bi-plus-lg"></i> Add Crime</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ac' %}"><i class="bi bi-plus-lg"></i> Add Case</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'crep' %}"><i class="bi bi-file-earmark-text-fill"></i> Criminal Report</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'mc' %}"><i class="bi bi-file-earmark-text-fill"></i> Case Report</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'crirep' %}"><i class="bi bi-file-earmark-text-fill"></i> Crime Report</a>
+    </li>
+   
+
+    {% else %}
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dsh' %}"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'rr' %}">Role Request</a>
+    </li>
+
+    {% endif %}
+  </ul>
+
+
+  <ul class="navbar-nav ml-auto" style="margin-right: 120px">
+    {% if not user.is_authenticated %}   
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'lg' %}"><i class="bi bi-person-check-fill"></i> Login</a>
+      </li> 
+    {% else %}
+  <li class="dropdown">
+    <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="bi bi-at"></i>{{user.username}}</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person"></i> My Profile</a>
+      <a class="dropdown-item" href="{% url 'chp' %}"><i class="bi bi-key"></i> Change Password</a>
+      <a class="dropdown-item" href="{% url 'lgo' %}"><i class="bi bi-power"></i> Logout</a>
+    </div>
+  </li>
+{% endif %}  
+  </ul>
+
+</div>
+</nav>
+<!-- <script type="text/javascript">
+  $("a").click(function(){
+    $("a").css("background-color","");
+    $("a").css("background-color","blue")
+
+    });
+  
+</script> -->

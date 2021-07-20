@@ -1,0 +1,137 @@
+{% extends 'html/header.html' %}
+{% block title %}Case Details{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="card mx-auto mt-5 shadow-lg">
+    <div class="card-body">
+    	<!-- <form method="POST">
+			{% csrf_token %}-->
+			{% if user.is_superuser %}
+			<h3 class="text-center">CASE REPORT</h3> 
+			<table class="table table-hover">
+				<thead class="table-active">
+	    		<tr>
+	    			<th>S.no</th>
+	    			<th>Logged By</th>
+	    			<th>Case Title</th>
+	    			<th>Case Filed Date</th>
+	    			<th>CaseStatus</th>
+	    			<th>Actions</th>
+	    		</tr>
+	    	</thead>
+	    		{% for f in y %}
+	    		<tbody class="table-light">
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{f.3}}</td>
+					<td>{{f.1}}</td>
+					<td><i class="bi bi-calendar2-check-fill"></i> {{f.2}}</td>
+					<td>
+						{% if f.4 == 1 %}
+							<span class="badge badge-primary p-2">In Progress</span>
+							{% elif f.4 == 2 %}
+							<span class="badge badge-success p-2">Solved</span>
+							{% elif f.4 == 3 %}
+							<span class="badge badge-warning p-2">Pending</span>
+							{% elif f.4 == 4 %}
+							<span class="badge badge-danger p-2">Closed</span>
+							{% else %}
+							<span class="badge badge-secondary p-2">Applied</span>
+							{% endif %}
+					</td>
+					<td>
+						<a href="{% url 'ucs' f.5 %}" class="btn btn-warning"><i class="bi  bi-arrow-up-circle"></i> Update Status</a><a href="{% url 'dc' f.5 %}" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+					</td>
+				</tr>
+				{% endfor %}
+
+    		
+    	</table>
+    	
+
+    	{% elif user.role == 1 %}
+    	<h3 class="text-center">MY CASE</h3>
+			<table class="table table-hover">
+				<thead class="table-active">
+				<tr>
+					<th>S.no</th>
+					<!-- <th>Logged By</th> -->
+					<th>Case Title</th>
+					<th>Case Filed Date</th>
+					<th>Case Status</th>
+				</tr>
+			</thead>
+				{% for f in b %}
+				<tbody>
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<!-- <td>{{user.username}}</td> -->
+					<td>{{f.case_title}}</td>
+					<td>{{f.case_date}}</td>
+					<td>{% if f.update_status == 1 %}
+						<span class="badge badge-primary p-2">In Progress</span>
+						{% elif f.update_status == 2 %}
+						<span class="badge badge-success p-2">Solved</span>
+						{% elif f.update_status == 3 %}
+						<span class="badge badge-warning p-2">Pending</span>
+						{% elif f.update_status == 4 %}
+						<span class="badge badge-danger p-2">Closed</span>
+						{% else %}
+						<span class="badge badge-secondary p-2">Applied</span>
+						{% endif %}
+				    </td>
+				</tr>
+				</tbody>
+				{% endfor %}		
+			</table>
+
+			{% elif user.role == 2 %}
+			<h3 class="text-center">USER CASES</h3>
+			<table class="table table-hover">
+				<thead class="table-active">
+				<tr>
+					<th>S.no</th>
+					<th>Logged By</th> 
+					<th>Case Title</th>
+					<th>Case Filed Date</th>
+					<th>Case Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+				{% for f in y %}
+				<tbody>
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{f.3}}</td>
+					<td>{{f.1}}</td>
+					<td>{{f.2}}</td>
+					<td>{% if f.4 == 1 %}
+						<span class="badge badge-primary p-2">In Progress</span>
+						{% elif f.4 == 2 %}
+						<span class="badge badge-success p-2">Solved</span>
+						{% elif f.4 == 3 %}
+						<span class="badge badge-warning p-2">Pending</span>
+						{% elif f.4 == 4 %}
+						<span class="badge badge-danger p-2">Closed</span>
+						{% else %}
+						<span class="badge badge-secondary p-2">Applied</span>
+						{% endif %}
+				    </td>
+				    <td>
+				    	<a href="{% url 'ucs' f.5 %}" class="btn btn-warning">Update_Status</a>
+				    </td>
+				</tr>
+			</tbody>
+				{% endfor %}		
+			</table>
+
+			{% endif %}
+
+    <!-- </form> -->
+	</div>
+			
+</div>
+</div>
+
+{% endblock %}

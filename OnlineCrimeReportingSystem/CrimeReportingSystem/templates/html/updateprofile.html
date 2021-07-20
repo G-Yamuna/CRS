@@ -1,0 +1,43 @@
+{% extends 'html/header.html' %}
+{% block title %} Update Profile {% endblock %}
+{% block content %}
+<div class="container">
+	<!-- <div class="card col-md-6 mt-4 shadow-lg mx-auto"> -->
+		<div class="col-md mt-4 mb-4 card shadow-lg mx-1">
+		<h3 class="text text-center text-info mt-2">UPDATE DETAILS</h3>
+		<div class="card-body">
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+			<table class="table table-borderless">
+				<div class="row p-2">
+					<div class="col-md mb-2">
+						{% for k in us %}
+						<div class="mb-2">
+							{{k}}
+						</div>
+						{% endfor %}
+					</div>
+					<div class="col-md mb-2">
+						{% for k in r %}
+						<div class="mb-2">
+							{{k}} 
+						</div>
+						{% endfor %}	
+			</div>
+				
+			</table>
+			<div class="row">
+				<div class="col">
+					<a href="{% url 'profile' %}" class="form-control m-2 btn btn-secondary text-light">Back</a>
+				</div>
+				<div class="col">
+					<input type="submit" value="Update" class="btn btn-success my-2 btn btn-block">
+					<!-- <a href="{% url 'uppro' %}" class="form-control m-2 btn btn-secondary text-light"><i class="bi  bi-arrow-up-circle"></i> Update Details</a> -->
+				</div>
+			</div>
+			
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

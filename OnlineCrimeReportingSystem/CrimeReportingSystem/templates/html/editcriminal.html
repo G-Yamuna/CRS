@@ -1,0 +1,29 @@
+{% extends 'html/header.html' %}
+{% block title %}Edit Criminal Details{% endblock %}
+{% block content %}
+<div class="container">
+	<!-- <div class="card col-md-5 mt-5 mx-auto"> -->
+		<div class="card col-md-10 mx-auto mt-3 shadow-lg">
+		<h3 class="text-info text-white text-center mt-3">Edit Criminal Details</h3>
+		<div class="card-body">
+			<form method="POST">
+				{% csrf_token %}
+				<div class="row p-2">
+					<div class="col-md mb-2">
+						<div class="mb-2">
+						{{u.as_p}} 
+					</div>
+				</div>
+				<div class="col-md mb-2">
+						<div class="mb-2">
+						{{x.as_p}}
+					</div>
+				</div>
+				
+				<input type="submit" value="update" class="btn btn-success btn-block my-2">
+			</form>
+			
+		</div>		
+	</div>
+</div>
+{% endblock %}

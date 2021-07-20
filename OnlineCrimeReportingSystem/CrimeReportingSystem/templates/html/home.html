@@ -1,0 +1,107 @@
+{% extends 'html/header.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{% load static %}
+
+<!-- <p>this is home</p> -->
+
+<div class="card mx-auto">
+</br>
+</br>
+<h3 class=" text-primary p-3"></h3>
+</div>
+<body class="background-color:data-ride"> 
+	<div class="card-body mx-2 my-2 mt-3">
+		<style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+  	width: 100%;
+  	height: 400px;
+  	display: block;
+  	div.polaroid {
+  		width: 80%;
+  		background-color: dark;
+  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-bottom: 25px;
+  	}
+  	div.container {
+  		text-align: center;
+  		padding: 10px 20px;
+      
+  	}
+  </style>
+  <div id="demo" class="carousel slide " data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+  	<li data-target="#demo" data-slide-to="0" class="active"></li>
+  	<li data-target="#demo" data-slide-to="1"></li>
+  	<li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+  	<div class="carousel-item active">
+  		<img src="{% static 'images/ny.jpg' %}" width="100%" height="70px">
+  	</div>
+  	<div class="carousel-item">
+  		<img src="{% static 'images/image2.jpg' %}" width="100%" height="70px">
+  	</div>
+  	<div class="carousel-item">
+  		<img src="{% static 'images/image1.jpg' %}"  width="100%" height="70px">
+  	</div>
+    <div class="carousel-item">
+      <img src="{% static 'images/slide-4.jpg' %}"  width="100%" height="70px">
+    </div>
+  </div>
+  <div id="advantages" class="adventages">
+   <div class="row">
+      <div class="container">
+         <div class="col-sm-12 col-md-12 margin-bottom">
+            <h2 style="color: black" class="text text-center mt-5">Our Advantages</h2>
+         </div>
+         <div class="col-sm-12 col-md-12 advantage_margin">
+            <div class="row">
+               <div class="col-sm-12 col-md-4 advantage_right">
+                  <div class="advantge_box mt-3">
+                     <i><img src="{% static 'images/m1.jpg' %}"width="20%" height="45px"></i>
+                     <h4>Time saving</h4>
+                     <p>Filing online consumer complaint will save your time</p>
+                  </div>
+                  <div class="advantge_box mt-5">
+                     <i><img src="{% static 'images/m2.jpg' %}"width="20%" height="45px"></i>
+                     <h4>Any Device</h4>
+                     <p>The complaint can be filed from mobile/computer</p>
+                  </div>
+               </div>
+               <div class="col-sm-12 col-md-4 advantage_right">
+                  <div class="advantge_box mt-3">
+                     <i><img src="{% static 'images/m3.jpg' %}"width="20%" height="45px"></i>
+                     <h4>Complaint Anywhere</h4>
+                     <p>It can be done from any location i.e. home, office or vacation trip</p>
+                  </div>
+               </div>
+               <div class="col-sm-12 col-md-4 advantage_right">
+                  <div class="advantge_box mt-3">
+                     <i><img src="{% static 'images/m4.jpg' %}"width="20%" height="45px"></i>
+                     <h4>Legal Notice</h4>
+                     <p>You can send legal notice to the company</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+  	<span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+  	<span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+</div>
+</body>
+{% endblock %}
+

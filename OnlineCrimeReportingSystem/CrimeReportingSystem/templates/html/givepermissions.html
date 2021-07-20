@@ -1,0 +1,56 @@
+{% extends 'html/header.html' %}
+{% block title %}Permissions{% endblock %}
+{% block content %}
+  <div class="container">
+  <div class="card mx-auto mt-5 shadow-lg">
+    <div class="card-body">
+			<h3 class="text-center text-info">USER PERMISSIONS</h3>
+			<table class="table table-hover">
+				<thead class="table-active">
+				<tr>
+					<th>S.no</th>
+					<th>Username</th>
+					<th>Requested Role</th> 
+					<th>Given Role</th>
+					<th>Permissions</th>
+				</tr>
+				</thead>
+				{% for l in q %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+				
+					<td>{{l.0}}</td>
+					<td>{% if l.1 == 1 %}
+						<h6>User</h6>
+						{% elif l.1 == 2 %}
+						<h6>Police</h6>
+					 {% else %}
+					<h6>Guest</h6>
+					 {% endif %}
+					</td>
+					
+					<td>{% if l.2 == 1 %}
+						<h6>User</h6>
+						{% elif l.2 == 2 %}
+						<h6>Police</h6>
+					 {% else %}
+					<h6>Guest</h6>
+					 {% endif %}
+					</td>
+				
+				
+				</td>
+					<td>
+						<a href="/gvp/{{l.3}}" class="btn btn-success">Accept  </a>
+						<!-- <a href="#" class="btn btn-danger">Decline</a> -->
+						
+					</td>
+				</tr>	
+				{% endfor %}
+			</table>
+				
+	</div>
+</div>
+</div>
+
+{% endblock %} 

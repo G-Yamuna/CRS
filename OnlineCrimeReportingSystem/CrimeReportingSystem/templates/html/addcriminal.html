@@ -1,0 +1,39 @@
+{% extends 'html/header.html' %}
+{% block title %} Add Criminal {% endblock %}
+{% block content %}
+
+<div class="container">
+	<div class="card col-md-10 mx-auto mt-3 shadow-lg">
+		<div class="card-body">
+			<h2 class="text-center ">Add Criminal</h2>
+			<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<table class="table table-borderless">
+				<div class="row p-2">
+					<div class="col-md mb-2">
+						{% for k in e %}
+							<div class="mb-2">
+							{{k}} 
+						</div>
+						{% endfor %}
+					</div>
+					<div class="col-md mb-2">
+						{% for k in q %}
+						<div class="mb-2">
+							{{k}} 
+						</div>
+						{% endfor %}	
+					</div>
+				</div>
+			</table>
+		 	<input type="submit" value="Submit" class="btn btn-success btn-block col-sm">
+			
+		</form>
+	</div>
+</div>
+<!-- <script>
+  $( function() {
+    $( "#id_dob" ).datepicker();
+  } );
+  </script> -->
+{% endblock %}

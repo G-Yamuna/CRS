@@ -1,0 +1,74 @@
+{% extends 'html/header.html' %}
+{% load static %}
+{% block title %} Profile {% endblock %}
+{% block content %}
+
+<!-- <body id="bg" style="background-image: url('{% static 'img/about5.jpg' %}');">
+</body> -->
+<div class="container-fluid">
+	{% if messages %}
+	{% for j in messages %}
+	<div class="alert alert-{{j.tags}} alert-dismissible mt-2">
+	<button type="button" class="close" data-dismiss="alert">&times;</button><img src="{% static 'img/avatar.png' %}" class="rounded-circle" height="40px" width="50px"/>{{j}}
+	</div>
+	{% endfor %}
+	{% endif %}
+	<div class="row mt-3 mx-3">
+		<div class="col-md-3 h-100">
+			<div class="card border-info">
+				<img src="{{user.profile.url}}" class="card-img-top rounded" height="230px" width="100%"/>
+				<div class="card-footer">
+					<h1 class="text-center text-secondary">{{user.username}}</h1>
+				</div>`
+		</div>
+	</div>
+		<div class="col-md">
+			<div class="card border-success">
+				<h3 class="text-center text-info my-2">MY DETAILS</h3>
+			<table class="table table-borderless">
+				<tr>
+					<th>Username</th>
+					<td>{{user.username}}</td>
+				</tr>
+				<tr>
+					<th>Age</th>
+					<td>{{user.age}}</td>
+				</tr>
+				<tr>
+					<th>Gender</th>
+					<td>{{user.gender}}</td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td>{{user.email}}</td>
+				</tr>
+				<tr>
+					<th>Phone Number</th>
+					<td>{{user.mobile_no}}</td>
+				</tr>
+				<tr>
+					<th>City</th>
+					<td>{{user.city}}</td>
+				</tr>
+				<tr>
+					<th>State</th>
+					<td>{{user.state}}</td>
+				</tr>
+				
+			</table>
+
+			<div class="row">
+				<div class="col">
+					<a href="{% url 'dsh' %}" class="form-control m-2 btn btn-secondary text-light">Back</a>
+				</div>
+				<div class="col">
+					<a href="{% url 'uppro' %}" class="form-control m-2 btn btn-secondary text-light"><i class="bi  bi-arrow-up-circle"></i> Update Details</a>
+				</div>
+			</div>
+				
+					
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

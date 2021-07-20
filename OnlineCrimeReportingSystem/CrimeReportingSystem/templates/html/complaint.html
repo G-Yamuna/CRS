@@ -1,0 +1,11 @@
+{% extends 'html/header.html' %}
+{% block title %}profile{% endblock %}
+{% block content %}
+<div class="container">
+	<form method="POST">
+		{% csrf_token %}
+	{{c.as_p}}
+	<input type="submit" value="Post_complaint">
+	</form>
+</div>
+{% endblock %}

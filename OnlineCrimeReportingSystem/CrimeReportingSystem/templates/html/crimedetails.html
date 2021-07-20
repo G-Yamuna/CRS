@@ -1,0 +1,39 @@
+{% extends 'html/header.html' %}
+{% block title %} Crime Details {% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="card mx-auto mt-5 shadow-lg">
+    <div class="card-body">
+			<h3 class="text-center">CRIME DETAILS</h3>
+			<!-- <table class="table table-borderless"> -->
+			<table class="table table-hover">
+				<thead class="table-active">
+					<tr>
+						<th>S.no</th>
+						<th>Crime Type</th>
+						<th>Date</th>
+						<th>Law</th>
+					<!-- <th>Country</th> -->
+						<th>Reference</th>
+					</tr>
+				</thead>
+				
+				{% for f in s %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{f.crime_type}}</td>
+					<td>{{f.crime_date}}</td>
+					<td>{{f.law}}</td>
+					<td><a href="{% url 'crref' %}">view</a></td>
+					<!-- <td>{{f.country}}</td> -->
+					<!-- <td><a href="{% url 'ecri' f.id %}" class="btn btn-warning"><i class="bi bi-pencil"></i> Edit</a><a href="{% url 'dcri' f.id %}" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a></td> -->
+				</tr>
+				{% endfor %}
+			</table>
+				
+	</div>
+</div>
+</div>
+
+{% endblock %}

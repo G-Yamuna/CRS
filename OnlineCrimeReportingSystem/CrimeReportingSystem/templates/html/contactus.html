@@ -1,0 +1,54 @@
+{% extends 'html/header.html' %}
+{% block title %} ContactUs {% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="container-fluid">
+
+	<!-- <h3 class="text-center mt-4 text-warning" style="border-bottom: 3px solid #000">ContactUs</h3> -->
+  
+  <div class="row">
+    <div class="col col-sm-4">
+    	<img src="{% static 'images/contactus.jpg' %}" width="300" height="300" class="mt-4 ml-4">
+    </div>
+    
+    <div class="col mt-3">
+    	<h4 class="text-info mt-5"><i class="bi bi-telephone-fill"></i> Call Us   :  08632340473</h4>
+    	<h4 class="text-info"><i class="bi bi-envelope-fill"></i> Write Us  :  ocrsfinal@gmail.com</h4>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+<!-- <p>this is contactus</p> -->
+
+<!-- <div class="container">
+	    <div class="card col-md-6 mx-auto mt-5 shadow-lg">
+		    <div class="card-body">
+			
+				<h3 class="text-white p-3 bg-secondary text-center border rounded">Contact</h3>
+				<form method="POST">
+					{% csrf_token %}
+					<table class="table table-borderless">
+						{% for k in u %}
+						<tr>
+							<td>{{k}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+					<div class="row">
+						<div class="col">
+							<a href="{% url 'hm' %}" class="form-control btn btn-primary col-sm" >submit</a>
+						</div><br><br>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div> -->

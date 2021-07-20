@@ -1,0 +1,12 @@
+def updfple(request):
+	if request.method == "POST":
+		m = UpdaPfl(request.POST,instance=request.user)
+		n = Im(request.POST,request.FILES,instance=request.user)
+		if m.is_valid() and n.is_valid():
+			m.save()
+			n.save()
+			messages.success(request,"Profile updated Successfully")
+			return redirect('/pfle')
+	m = UpdaPfl(instance=request.user)
+	n = Im(instance=request.user)
+	return render(request,'html/updateprofile.html',{'p':m,'r':n})
